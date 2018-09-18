@@ -105,12 +105,22 @@ void mergesort(int a[],int i,int j){
 		merge(a,i,mid,mid+1,j);
 	}
 }
+//<---------MIN Distance Calculator ------------->
+float min_distance(float x,float y){
+	if (x > y)
+	return y;
+	else if( x < y)
+	return x;
+	else return x;
+}
+//<---------MIN Distance Calculator ends ------------>
 //<-------------------MergeSort Ends-------------->
 // Function to train algorithm	
 void fit(float X[][2], struct centroid* c){
 	int i,j,k,count;
 	float centre[columns][columns];
 	float *p;
+	float min;
 	for(i=0;i<K;i++){                  //<-----------//Look for K value over here 
 		c[i].cluster_no = i;
 		//printf("Cluster %d\n",c[i].cluster_no);
@@ -137,9 +147,13 @@ for(i=0,count=0;i<K;i++,count++){
 		printf("P: %f\n",p[k]);
 	} */
 }
-mergesort(p,0,(rows*2)-1);
+//mergesort(p,0,(rows*2)-1);
 for(k=0;k<rows*2;k++){
 	printf("Sorted array: %f\n",p[k]);
+}
+for(i=0;i<6;i++){
+	min = min_distance(p[i],p[i+6]);
+	printf("Min: %f\n",min);
 }
 	
 }
